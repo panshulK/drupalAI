@@ -1,0 +1,22 @@
+uuid: bf6d8f00-93b9-4991-b612-addfe8476ea7
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - minimal_lite
+_core:
+  default_config_hash: 3zidmmcAXvoasuD_T9DXkpfvyiezaISYv4psvo_Y8ZM
+id: minimal_lite_content
+theme: minimal_lite
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

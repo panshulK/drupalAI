@@ -1,0 +1,22 @@
+uuid: b0ce2487-6104-450f-86af-6a8a1e786ff5
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - minimal_lite
+_core:
+  default_config_hash: JHBvwD9NP-FhgC1fCbY5cv5JPsdQrVVTJ_D66r7zZGU
+id: minimal_lite_help
+theme: minimal_lite
+region: content
+weight: -7
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

@@ -1,0 +1,8 @@
+name: drupalaiapp
+recipe: drupal10
+config:
+  webroot: web
+  php: 8.1
+  via: nginx
+  build:
+    - composer install
