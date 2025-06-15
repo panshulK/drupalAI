@@ -2,7 +2,7 @@ name: drupalaiapp
 recipe: drupal10
 config:
   webroot: web
-  php: 8.1
+  php: 8.3
   via: nginx
   build:
     - composer install

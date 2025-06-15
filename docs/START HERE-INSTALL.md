@@ -49,26 +49,13 @@ This command will:
 lando drush site:install --db-url=mysql://drupal10:drupal10@database/drupal10 -y
 ```
 
-### Step 5: Set Up AI Integration
-1. Copy the example settings file:
-```bash
-cp web/sites/default/settings.example.php web/sites/default/settings.php
-```
-
-2. Add your AI API key to the settings.php file:
-```php
-$settings['openai_api_key'] = 'your-api-key-here';
-// OR
-$settings['gemini_api_key'] = 'your-api-key-here';
-```
-
-### Step 6: Clear Cache
+### Step 5: Clear Cache
 ```bash
 lando drush cr
 ```
 
-### Step 7: Access Your Site
-- Local URL: https://drupalai.lndo.site
+### Step 6: Access Your Site
+- Local URL: https://drupalaiapp.lndo.site
 - Default login credentials:
   - Username: admin
   - Password: admin
