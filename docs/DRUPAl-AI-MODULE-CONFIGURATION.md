@@ -9,13 +9,41 @@ Before configuring the AI module, ensure you have:
 ## Step 1: Install Required Modules
 ```bash
 # Install the Key module and its dependencies
-lando drush en key key_value_field -y
+lando drush en key -y
 
 # Install the AI module
 lando drush en ai -y
 ```
 
-## Step 2: Configure API Key Storage
+## Step 2: Install AI Providers
+Install your preferred AI provider(s) using Composer:
+
+For OpenAI:
+```bash
+composer require 'drupal/ai_provider_openai:^1.1'
+```
+
+For Google Gemini:
+```bash
+composer require 'drupal/gemini_provider:^1.0@beta'
+```
+
+After installing the providers, enable them:
+```bash
+# For OpenAI
+lando drush en ai_provider_openai -y
+
+# For Gemini
+lando drush en gemini_provider -y
+```
+
+## Step 3: Configure API Key Storage
+Before proceeding, make sure you have your API key ready. For detailed instructions on obtaining and setting up your API key, refer to:
+- [OpenAI API Key Setup Guide](OPENAI-API-KEY-SETUP.md)
+- [Gemini API Key Setup Guide](GEMINI-API-KEY-SETUP.md)
+
+Once you have your API key, configure it in Drupal:
+
 1. Go to `/admin/config/system/keys` in your Drupal site
 2. Click "Add key"
 3. Configure based on your chosen AI provider:
@@ -36,12 +64,12 @@ lando drush en ai -y
 
 4. Click "Save"
 
-## Step 3: Configure AI Module Settings
+## Step 4: Configure AI Module Settings
 1. Navigate to `/admin/config/ai/settings`
 2. Select your preferred AI provider:
    - OpenAI
    - Google Gemini
-3. In the API Key field, select the key you created in Step 2
+3. In the API Key field, select the key you created in Step 3
 4. Configure additional settings:
    - Model selection (e.g., GPT-4, GPT-3.5-turbo for OpenAI)
    - Temperature setting (0.0 to 1.0)
@@ -49,7 +77,7 @@ lando drush en ai -y
    - Response timeout
 5. Click "Save configuration"
 
-## Step 4: Enable AI Features
+## Step 5: Enable AI Features
 1. Go to `/admin/config/ai/features`
 2. Enable desired features:
    - Content Generation
@@ -58,7 +86,7 @@ lando drush en ai -y
    - Automated Tagging
    - Other available features
 
-## Step 5: Test the Configuration
+## Step 6: Test the Configuration
 1. Clear the cache:
 ```bash
 lando drush cr
