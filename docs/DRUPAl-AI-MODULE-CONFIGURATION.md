@@ -1,0 +1,121 @@
+# Drupal AI Module Configuration Guide
+
+## Prerequisites
+Before configuring the AI module, ensure you have:
+1. A working Drupal installation
+2. An API key from either OpenAI or Google Gemini
+3. The Key module installed for secure API key storage
+
+## Step 1: Install Required Modules
+```bash
+# Install the Key module and its dependencies
+lando drush en key key_value_field -y
+
+# Install the AI module
+lando drush en ai -y
+```
+
+## Step 2: Configure API Key Storage
+1. Go to `/admin/config/system/keys` in your Drupal site
+2. Click "Add key"
+3. Configure based on your chosen AI provider:
+
+   For OpenAI:
+   - Key name: `openai_api_key`
+   - Key type: `Authentication`
+   - Key provider: `File`
+   - Key value: Your OpenAI API key
+
+   OR
+
+   For Gemini:
+   - Key name: `gemini_api_key`
+   - Key type: `Authentication`
+   - Key provider: `File`
+   - Key value: Your Gemini API key
+
+4. Click "Save"
+
+## Step 3: Configure AI Module Settings
+1. Navigate to `/admin/config/ai/settings`
+2. Select your preferred AI provider:
+   - OpenAI
+   - Google Gemini
+3. In the API Key field, select the key you created in Step 2
+4. Configure additional settings:
+   - Model selection (e.g., GPT-4, GPT-3.5-turbo for OpenAI)
+   - Temperature setting (0.0 to 1.0)
+   - Maximum tokens per request
+   - Response timeout
+5. Click "Save configuration"
+
+## Step 4: Enable AI Features
+1. Go to `/admin/config/ai/features`
+2. Enable desired features:
+   - Content Generation
+   - Content Analysis
+   - Smart Search
+   - Automated Tagging
+   - Other available features
+
+## Step 5: Test the Configuration
+1. Clear the cache:
+```bash
+lando drush cr
+```
+
+2. Test a basic AI operation:
+   - Go to any content creation page
+   - Look for the AI assistance button
+   - Try generating content or getting suggestions
+
+## Common Configuration Options
+
+### Content Generation Settings
+- Maximum content length
+- Tone and style preferences
+- Language settings
+- Content type restrictions
+
+### Analysis Settings
+- Sentiment analysis depth
+- Keyword extraction options
+- Content categorization rules
+- Custom analysis parameters
+
+### Search Settings
+- AI-enhanced search relevance
+- Search result customization
+- Query understanding options
+- Result ranking preferences
+
+## Troubleshooting
+
+### Common Issues
+1. API Key Not Working
+   - Verify the key is correctly stored
+   - Check if the key has expired
+   - Ensure proper permissions
+
+2. Module Not Responding
+   - Clear the cache
+   - Check the logs at `/admin/reports/dblog`
+   - Verify API quota limits
+
+3. Performance Issues
+   - Adjust timeout settings
+   - Check server resources
+   - Optimize request frequency
+
+### Getting Help
+- Check the module's issue queue
+- Review the documentation
+- Contact support if needed
+
+## Best Practices
+1. Start with conservative settings
+2. Monitor API usage regularly
+3. Set appropriate rate limits
+4. Keep your API keys secure
+5. Regularly update the module
+6. Test features in a staging environment first
